@@ -15,3 +15,20 @@ insert into vaccine_type values
 ('COVID19',	'COVID19 - It Typically Requires 2 Shots', current_timestamp, 'Mohammed Monirul Islam', current_timestamp, 'Mohammed Monirul Islam'),
 ('EBOLA', 	'EBOLA - It Typically Requires 2 Shots', current_timestamp, 'Mohammed Monirul Islam', current_timestamp, 'Mohammed Monirul Islam'),
 ('FLU',	'FLU - It Typically Requires 1 Shot', current_timestamp, 'Mohammed Monirul Islam', current_timestamp, 'Mohammed Monirul Islam');
+
+drop table if exists users;
+create table users (
+  user_id int(11) not null auto_increment primary key,
+  username varchar(45) not null,
+  password varchar(64) not null,
+  role varchar(45) not null,
+  enabled tinyint(4) default null,
+  created_date datetime not null default current_timestamp,
+  created_by varchar(100) not null,
+  last_updated_date datetime not null default current_timestamp,
+  last_updated_by varchar(100) not null
+);
+
+insert into users (username, password, role, enabled, created_date, created_by, last_updated_date, last_updated_by) values
+('user', '$2y$12$0nrCQQwnpV7qVopwJJSVOebpGq8SV.V7vBG.IanrjZikpDjK360mu', 'ROLE_USER', 1, current_timestamp, 'Mohammed Monirul Islam', current_timestamp, 'Mohammed Monirul Islam'),
+('admin', '$2y$12$2ty2epgvInaUT4tGvKcpD.xh8ObeSe6ME4OFyvv2ls/0iKJbqXzUq', 'ROLE_ADMIN', 1, current_timestamp, 'Mohammed Monirul Islam', current_timestamp, 'Mohammed Monirul Islam');
